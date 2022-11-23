@@ -1,0 +1,54 @@
+﻿@page
+@model SoulBowl.Pages.Menus.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>MenuItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MenuItem.MenuType" class="control-label"></label>
+                <input asp-for="MenuItem.MenuType" class="form-control" />
+                <span asp-validation-for="MenuItem.MenuType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItem.ItemName" class="control-label"></label>
+                <input asp-for="MenuItem.ItemName" class="form-control" />
+                <span asp-validation-for="MenuItem.ItemName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItem.ItemDescription" class="control-label"></label>
+                <input asp-for="MenuItem.ItemDescription" class="form-control" />
+                <span asp-validation-for="MenuItem.ItemDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItem.Allergens" class="control-label"></label>
+                <input asp-for="MenuItem.Allergens" class="form-control" />
+                <span asp-validation-for="MenuItem.Allergens" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItem.Price" class="control-label"></label>
+                <input asp-for="MenuItem.Price" class="form-control" />
+                <span asp-validation-for="MenuItem.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
