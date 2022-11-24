@@ -2,59 +2,32 @@
 @model SoulBowl.Pages.Menus.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Menu";
 }
 
-<h1>Index</h1>
+<h1>Menu</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MenuItem[0].MenuType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MenuItem[0].ItemName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MenuItem[0].ItemDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MenuItem[0].Allergens)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MenuItem[0].Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.MenuItem) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MenuType)
-            </td>
-            <td>
+<div class="container text-center">
+    <div class="row row-cols-3">
+        @foreach (var item in Model.MenuItem) {
+            <div class="col" id="menuCol">
+                <div>
                 @Html.DisplayFor(modelItem => item.ItemName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ItemDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Allergens)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                </div>
+                <div>
+                    @Html.DisplayFor(modelItem => item.ItemDescription)
+				</div>                
+                <div>
+					@Html.DisplayFor(modelItem => item.Price)
+				</div>
+                <div>
+                    @Html.DisplayFor(modelItem => item.Allergens)
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

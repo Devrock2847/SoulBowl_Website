@@ -1,0 +1,10 @@
+﻿body {
+}
+.col {
+    color: white;
+    background-color: #212529;
+    font-size: medium;
+    font-family:'Times New Roman', Times, serif;
+    margin-left:10px;
+    margin-right:10px;
+}
