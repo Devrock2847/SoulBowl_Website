@@ -18,7 +18,6 @@ namespace SoulBowl.Pages.Menus
         {
             _context = context;
         }
-
       public MenuItem MenuItem { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -27,7 +26,6 @@ namespace SoulBowl.Pages.Menus
             {
                 return NotFound();
             }
-
             var menuitem = await _context.MenuItem.FirstOrDefaultAsync(m => m.ID == id);
             if (menuitem == null)
             {

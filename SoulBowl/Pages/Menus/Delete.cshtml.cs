@@ -13,12 +13,10 @@ namespace SoulBowl.Pages.Menus
     public class DeleteModel : PageModel
     {
         private readonly SoulBowl.Data.MenuContext _context;
-
         public DeleteModel(SoulBowl.Data.MenuContext context)
         {
             _context = context;
         }
-
         [BindProperty]
       public MenuItem MenuItem { get; set; }
 
@@ -28,7 +26,6 @@ namespace SoulBowl.Pages.Menus
             {
                 return NotFound();
             }
-
             var menuitem = await _context.MenuItem.FirstOrDefaultAsync(m => m.ID == id);
 
             if (menuitem == null)
@@ -41,7 +38,6 @@ namespace SoulBowl.Pages.Menus
             }
             return Page();
         }
-
         public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null || _context.MenuItem == null)
@@ -56,7 +52,6 @@ namespace SoulBowl.Pages.Menus
                 _context.MenuItem.Remove(MenuItem);
                 await _context.SaveChangesAsync();
             }
-
             return RedirectToPage("./Index");
         }
     }

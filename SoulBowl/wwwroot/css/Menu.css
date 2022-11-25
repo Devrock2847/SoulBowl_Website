@@ -5,6 +5,14 @@
     background-color: #212529;
     font-size: medium;
     font-family:'Times New Roman', Times, serif;
-    margin-left:10px;
-    margin-right:10px;
+    padding:5px;
+}
+#MenuItemName {
+    font-size: large;
+}
+#MenuTitle {
+    font-size: xx-large;
+    font-family:Impact;
+    color:white;
+    text-align:center;
 }

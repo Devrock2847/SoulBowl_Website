@@ -14,22 +14,18 @@ namespace SoulBowl.Pages.Menus
     public class EditModel : PageModel
     {
         private readonly SoulBowl.Data.MenuContext _context;
-
         public EditModel(SoulBowl.Data.MenuContext context)
         {
             _context = context;
         }
-
         [BindProperty]
         public MenuItem MenuItem { get; set; } = default!;
-
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.MenuItem == null)
             {
                 return NotFound();
             }
-
             var menuitem =  await _context.MenuItem.FirstOrDefaultAsync(m => m.ID == id);
             if (menuitem == null)
             {
@@ -38,7 +34,6 @@ namespace SoulBowl.Pages.Menus
             MenuItem = menuitem;
             return Page();
         }
-
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
@@ -47,9 +42,7 @@ namespace SoulBowl.Pages.Menus
             {
                 return Page();
             }
-
             _context.Attach(MenuItem).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -65,10 +58,8 @@ namespace SoulBowl.Pages.Menus
                     throw;
                 }
             }
-
             return RedirectToPage("./Index");
         }
-
         private bool MenuItemExists(int id)
         {
           return _context.MenuItem.Any(e => e.ID == id);

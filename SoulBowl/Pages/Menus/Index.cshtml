@@ -5,7 +5,9 @@
     ViewData["Title"] = "Menu";
 }
 
-<h1>Menu</h1>
+<h1 id="MenuTitle">Menu</h1>
+
+<h2>Starters</h2>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -14,8 +16,8 @@
     <div class="row row-cols-3">
         @foreach (var item in Model.MenuItem) {
             <div class="col" id="menuCol">
-                <div>
-                @Html.DisplayFor(modelItem => item.ItemName)
+                <div id="MenuItemName">
+                    @Html.DisplayFor(modelItem => item.ItemName)
                 </div>
                 <div>
                     @Html.DisplayFor(modelItem => item.ItemDescription)
@@ -23,6 +25,8 @@
                 <div>
 					@Html.DisplayFor(modelItem => item.Price)
 				</div>
+                <div> 
+                    </div>
                 <div>
                     @Html.DisplayFor(modelItem => item.Allergens)
                 </div>

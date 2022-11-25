@@ -14,21 +14,16 @@ namespace SoulBowl.Pages.Menus
     public class CreateModel : PageModel
     {
         private readonly SoulBowl.Data.MenuContext _context;
-
         public CreateModel(SoulBowl.Data.MenuContext context)
         {
             _context = context;
         }
-
         public IActionResult OnGet()
         {
             return Page();
         }
-
         [BindProperty]
         public MenuItem MenuItem { get; set; }
-        
-
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
@@ -36,7 +31,6 @@ namespace SoulBowl.Pages.Menus
             {
                 return Page();
             }
-
             _context.MenuItem.Add(MenuItem);
             await _context.SaveChangesAsync();
 

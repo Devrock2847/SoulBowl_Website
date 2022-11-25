@@ -79,5 +79,15 @@ body {
     color:white;
     font-size: 20px;
 }
+#AdminHeader {
+    font-size: 40px;
+    color:white;
+    font-family:Impact;
+}
+#ContactP {
+    font-size: 40px;
+    color: white;
+    font-family: Impact;
+}
 
 #212529

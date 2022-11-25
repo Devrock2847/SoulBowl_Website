@@ -13,9 +13,7 @@ namespace SoulBowl.Data
             : base(options)
         {
         }
-
         public DbSet<MenuItem> MenuItem { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<MenuItem>().ToTable("Menu");
