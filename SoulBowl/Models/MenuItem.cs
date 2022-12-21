@@ -8,6 +8,8 @@
         public string ItemDescription { get; set; }
         public string Allergens { get; set; }
         public string Price { get; set; }
+        public string ImageDescription { get; set; }
+        public byte[] ImageData { get; set; }
 
     }
 }

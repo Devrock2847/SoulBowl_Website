@@ -13,6 +13,20 @@
     <div class="row row-cols-3">
         @foreach (var item in Model.MenuItem) {
             <div class="col" id="menuCol">
+                @{
+                    try
+                    {
+                        <td>
+                            <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription" />
+                        </td>
+                    }
+                    catch
+                    {
+                        <td>
+                            <img class="img-thumb" src="/Images/no-image.png" alt="No Image provided" />
+                        </td>
+                    }
+                }
                 <div id="MenuItemName">
                     @Html.DisplayFor(modelItem => item.ItemName)
                 </div>

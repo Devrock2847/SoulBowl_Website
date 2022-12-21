@@ -31,6 +31,15 @@ namespace SoulBowl.Pages.Menus
             {
                 return Page();
             }
+          foreach (var file in Request.Form.Files)
+            {
+                MemoryStream ms = new MemoryStream();
+                file.CopyTo(ms);
+                MenuItem.ImageData = ms.ToArray();
+
+                ms.Close();
+                ms.Dispose();
+            }
             _context.MenuItem.Add(MenuItem);
             await _context.SaveChangesAsync();
 

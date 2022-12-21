@@ -40,6 +40,17 @@
                 <span asp-validation-for="MenuItem.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="MenuItem.ImageDescription" class="control-label"></label>
+                <input asp-for="MenuItem.ImageDescription" class="form-control" />
+                <span asp-validation-for="MenuItem.ImageDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItem.ImageData" class="control-label">Image Upload</label>
+                <input type="file" id="file1"
+                       name="file1"
+                       multiple="multiple" />
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

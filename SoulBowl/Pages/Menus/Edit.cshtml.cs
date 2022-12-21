@@ -38,11 +38,23 @@ namespace SoulBowl.Pages.Menus
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            foreach (var file in Request.Form.Files)
+            {
+                MemoryStream ms = new MemoryStream();
+                file.CopyTo(ms);
+                MenuItem.ImageData = ms.ToArray();
+
+                ms.Close();
+                ms.Dispose();
+            }
+
             _context.Attach(MenuItem).State = EntityState.Modified;
+
             try
             {
                 await _context.SaveChangesAsync();
@@ -58,6 +70,7 @@ namespace SoulBowl.Pages.Menus
                     throw;
                 }
             }
+
             return RedirectToPage("./Index");
         }
         private bool MenuItemExists(int id)
