@@ -43,6 +43,8 @@ namespace SoulBowl.Pages.Menus
             {
                 return Page();
             }
+
+            //Imported from create function, does not work!
             foreach (var file in Request.Form.Files)
             {
                 MemoryStream ms = new MemoryStream();
