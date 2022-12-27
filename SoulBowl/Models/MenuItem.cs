@@ -10,6 +10,5 @@
         public string Price { get; set; }
         public string ImageDescription { get; set; }
         public byte[] ImageData { get; set; }
-
     }
 }

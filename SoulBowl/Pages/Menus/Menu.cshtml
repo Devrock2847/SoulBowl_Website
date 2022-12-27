@@ -12,22 +12,24 @@
 <div class="container text-center">
     <div class="row row-cols-3">
         @foreach (var item in Model.MenuItem) {
-            <div class="col" id="menuCol">
-                @{
-                    try
-                    {
-                        <td>
-                            <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription" />
-                        </td>
+            if (item.MenuType == "ST")
+            {
+                <div class="col" id="menuCol">
+                    @{
+                        try
+                        {
+                            <td>
+                                <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription" />
+                            </td>
+                        }
+                        catch
+                        {
+                            <td>
+                                <img class="img-thumb" src="/Images/no-image.png" alt="No Image provided" />
+                            </td>
+                        }
                     }
-                    catch
-                    {
-                        <td>
-                            <img class="img-thumb" src="/Images/no-image.png" alt="No Image provided" />
-                        </td>
-                    }
-                }
-                <div id="MenuItemName">
+                    <div id="MenuItemName">
                     @Html.DisplayFor(modelItem => item.ItemName)
                 </div>
                 <div>
@@ -43,6 +45,93 @@
                     @Html.DisplayFor(modelItem => item.Allergens)
                 </div>
             </div>
+            }
         }
     </div>
+    <h2 id="mainsTitle">Mains</h2>
+
+    <div class="container text-center">
+        <div class="row row-cols-3">
+            
+            @foreach (var item in Model.MenuItem)
+            {
+                if (item.MenuType == "MN")
+                {
+                    <div class="col" id="menuCol">
+                        @{
+                            try
+                            {
+                                <td>
+                                    <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription" />
+                                </td>
+                            }
+                            catch
+                            {
+                                <td>
+                                    <img class="img-thumb" src="/Images/no-image.png" alt="No Image provided" />
+                                </td>
+                            }
+                        }
+                        <div id="MenuItemName">
+                        @Html.DisplayFor(modelItem => item.ItemName)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => item.ItemDescription)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </div>
+                    <div>
+                        <p>       </p>
+                    </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => item.Allergens)
+                    </div>
+                </div>
+                }
+            }
+        </div>
+        <h2 id="mainsTitle">Desserts</h2>
+
+        <div class="container text-center">
+            <div class="row row-cols-3">
+
+                @foreach (var item in Model.MenuItem)
+                {
+                    if (item.MenuType == "DS")
+                    {
+                        <div class="col" id="menuCol">
+                            @{
+                                try
+                                {
+                                    <td>
+                                        <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription" />
+                                    </td>
+                                }
+                                catch
+                                {
+                                    <td>
+                                        <img class="img-thumb" src="/Images/no-image.png" alt="No Image provided" />
+                                    </td>
+                                }
+                            }
+                            <div id="MenuItemName">
+                                @Html.DisplayFor(modelItem => item.ItemName)
+                            </div>
+                            <div>
+                                @Html.DisplayFor(modelItem => item.ItemDescription)
+                            </div>
+                            <div>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </div>
+                            <div>
+                                <p>       </p>
+                            </div>
+                            <div>
+                                @Html.DisplayFor(modelItem => item.Allergens)
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
 </div>

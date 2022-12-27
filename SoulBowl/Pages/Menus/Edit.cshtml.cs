@@ -38,25 +38,24 @@ namespace SoulBowl.Pages.Menus
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-
             if (!ModelState.IsValid)
-            {
+             {
                 return Page();
-            }
+             }
 
             //Imported from create function, does not work!
             foreach (var file in Request.Form.Files)
-            {
+             {
                 MemoryStream ms = new MemoryStream();
                 file.CopyTo(ms);
                 MenuItem.ImageData = ms.ToArray();
 
                 ms.Close();
                 ms.Dispose();
-            }
+             }
 
             _context.Attach(MenuItem).State = EntityState.Modified;
-
+            
             try
             {
                 await _context.SaveChangesAsync();
