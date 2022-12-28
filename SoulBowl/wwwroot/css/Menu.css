@@ -4,11 +4,11 @@
     color: white;
     background-color: #212529;
     font-size: medium;
-    font-family:'Times New Roman', Times, serif;
-    padding:5px;
+    font-family: Papyrus;
+    padding: 5px;
 }
 #MenuItemName {
-    font-size: large;
+    font-size: x-large;
 }
 #MenuTitle {
     font-size: xx-large;
@@ -16,9 +16,21 @@
     color:white;
     text-align:center;
 }
-#starterTitle {
-    font-size: x-large;
+#menusTitle {
+    font-size: 50px;
     color: white;
-    text-align:center;
-
+    text-align: center;
+    height: 75px;
+    font-family: Papyrus;
+    padding-top:20px;
+    padding-bottom:10px;
+}
+#menuNote {
+    font-size: 15px;
+}
+#createButton {
+    width: 200px;
+}
+#menuNoteBox {
+    text-align:justify;
 }
