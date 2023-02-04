@@ -92,4 +92,13 @@ body {
 #createButton {
     font-size: 30px;
 }
+#loginPartial {
+    color: white;
+}
+#adminStatement {
+    color: white;
+}
+#memberStatement {
+    color: white;
+}
 #212529

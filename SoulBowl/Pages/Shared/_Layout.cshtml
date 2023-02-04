@@ -1,5 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+@Model IndexModel
+@{
+    var inMemberRole = User.IsInRole("Member");
+    var inAdminRole = User.IsInRole("Admin");
+}
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +13,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SoulBowl.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Menu.css" asp-append-version="true" />
+
 </head>
 
 <body>
@@ -29,7 +35,7 @@
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        
+                        <partial name="_LoginPartial" id="loginPartial" />
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Index">Home</a>
@@ -38,7 +44,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Menus/Menu">Menu</a>
+                                <a class="nav-link" asp-area="" asp-page="/Menu">Menu</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -57,7 +63,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Menus/Index">Admin area</a>
+                                <a class="nav-link" asp-area="" asp-page="/Admin/IndexAdmin">Admin area</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -78,7 +84,9 @@
                                     <li><a class="dropdown-item" asp-area="" asp-page="#">Something else here</a></li>
                                 </ul>
                             </li>
-                            <partial name="_LoginPartial" />
+                         
+                            <p id="adminStatement">Admin: @inAdminRole</p>
+                            <p id="memberStatement">Member: @inMemberRole</p>
                         </ul>
                         <form class="d-flex mt-3" role="search">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

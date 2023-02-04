@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SoulBowl.Data;
 using SoulBowl.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SoulBowl.Pages.Menus
 {
+    //[Authorize]
+    //[Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly SoulBowl.Data.MenuContext _context;

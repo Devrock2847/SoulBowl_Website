@@ -1,21 +1,17 @@
 ﻿@page
 @model SoulBowl.Pages.Menus.IndexModel
-
 @{
     ViewData["Title"] = "Menu";
 }
 
-
-//This page is due to removed entirely
-
-
-<h1 id="MenuTitle">Menu</h1>
+<h1 id="MenuTitle">new Menu</h1>
 
 <h2 id="menusTitle">Starters</h2>
 
 <div class="container text-center">
     <div class="row row-cols-3">
-        @foreach (var item in Model.MenuItem) {
+        @foreach (var item in Model.MenuItem)
+        {
             if (item.MenuType == "ST")
             {
                 <div class="col" id="menuCol">
@@ -34,21 +30,21 @@
                         }
                     }
                     <div id="MenuItemName">
-                    @Html.DisplayFor(modelItem => item.ItemName)
+                        @Html.DisplayFor(modelItem => item.ItemName)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => item.ItemDescription)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </div>
+                    <div>
+                        <p>       </p>
+                    </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => item.Allergens)
+                    </div>
                 </div>
-                <div>
-                    @Html.DisplayFor(modelItem => item.ItemDescription)
-				</div>                
-                <div>
-					@Html.DisplayFor(modelItem => item.Price)
-				</div>
-                <div> 
-                    <p>       </p>
-                </div>
-                <div>
-                    @Html.DisplayFor(modelItem => item.Allergens)
-                </div>
-            </div>
             }
         }
     </div>
@@ -56,7 +52,7 @@
 
     <div class="container text-center">
         <div class="row row-cols-3">
-            
+
             @foreach (var item in Model.MenuItem)
             {
                 if (item.MenuType == "MN")
@@ -77,21 +73,21 @@
                             }
                         }
                         <div id="MenuItemName">
-                        @Html.DisplayFor(modelItem => item.ItemName)
+                            @Html.DisplayFor(modelItem => item.ItemName)
+                        </div>
+                        <div>
+                            @Html.DisplayFor(modelItem => item.ItemDescription)
+                        </div>
+                        <div>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </div>
+                        <div>
+                            <p>       </p>
+                        </div>
+                        <div>
+                            @Html.DisplayFor(modelItem => item.Allergens)
+                        </div>
                     </div>
-                    <div>
-                        @Html.DisplayFor(modelItem => item.ItemDescription)
-                    </div>
-                    <div>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </div>
-                    <div>
-                        <p>       </p>
-                    </div>
-                    <div>
-                        @Html.DisplayFor(modelItem => item.Allergens)
-                    </div>
-                </div>
                 }
             }
         </div>
@@ -138,4 +134,4 @@
                     }
                 }
             </div>
-</div>
+        </div>

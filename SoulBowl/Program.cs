@@ -9,10 +9,33 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<MenuContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MenuContext")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<MenuContext>();
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddEntityFrameworkStores<MenuContext>();
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(
+
+options =>
+{
+    options.Stores.MaxLengthForKeys = 128;
+})
+.AddEntityFrameworkStores<MenuContext>()
+.AddRoles<IdentityRole>()
+.AddDefaultUI()
+.AddDefaultTokenProviders();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdmins", policy => policy.RequireRole("Admin"));
+});
+
+builder.Services.AddRazorPages()
+    .AddRazorPagesOptions(options =>
+    {
+        options.Conventions.AuthorizeFolder("/Admin", "RequireAdmins");
+    });
+
 
 var app = builder.Build();
 
@@ -33,6 +56,7 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
 
     var context = services.GetRequiredService<MenuContext>();
+
     context.Database.EnsureCreated();
     // DbInitializer.Initialize(context);
 }
@@ -45,5 +69,15 @@ app.UseAuthentication();;
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<MenuContext>();
+    //context.Database.Migrate();
+    var userMgr = services.GetRequiredService<UserManager<IdentityUser>>();
+    var roleMgr = services.GetRequiredService<RoleManager<IdentityRole>>();
+    IdentitySeedData.Initialize(context, userMgr, roleMgr).Wait();
+}
 
 app.Run();
