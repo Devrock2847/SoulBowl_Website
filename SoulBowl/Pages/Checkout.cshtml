@@ -1,0 +1,46 @@
+﻿@page
+@model SoulBowl.Pages.CheckoutModel
+@{
+	ViewData["Title"] = "Checkout";
+}
+@using SoulBowl.Data
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Identity
+
+<h1>Checkout page</h1>
+
+@if (Model.Items.Count == 0) {
+	<p>Your basket is empty</p>
+}
+else 
+{
+	<form method="post">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Price</th>
+					<th>Quanity</th>
+					<th>Subtotal</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model.Items)
+				{
+					var subtotal = item.Price * item.Quantity;
+
+					<tr>
+						<td>@item.ItemName</td>
+						<td>@item.Price.ToString("C")</td>
+						<td>@item.Quantity</td>
+						<td>@subtotal.ToString("C")</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+		<h2>Order Total: @Model.Total.ToString("C")</h2>
+
+	<button type="submit" asp-page-handler="Buy">Buy</button>
+	</form>
+	
+}
