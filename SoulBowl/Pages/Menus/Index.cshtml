@@ -35,7 +35,8 @@
             <th>
                 @Html.DisplayNameFor(model => model.MenuItem[0].ImageData)
             </th>
-            <th></th>
+            <th>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -71,6 +72,11 @@
                         </td>
                     }
                 }
+                <td>
+                    <form method="post">
+                        <button type="submit" asp-page-handler="Buy" asp-route-itemID="@item.ID">Add to Basket</button>
+                    </form>
+                </td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                     <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |

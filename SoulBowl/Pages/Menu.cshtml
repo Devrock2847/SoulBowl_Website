@@ -44,6 +44,14 @@
                     <div>
                         @Html.DisplayFor(modelItem => item.Allergens)
                     </div>
+                    <div>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </div>
+                    <div>
+                        <form method="post">
+                            <button type="submit" asp-page-handler="Buy" asp-route-itemID="@item.ID">Add to Basket</button>
+                        </form>
+                    </div>
                 </div>
             }
         }
@@ -86,6 +94,11 @@
                         </div>
                         <div>
                             @Html.DisplayFor(modelItem => item.Allergens)
+                        </div>
+                        <div>
+                            <form method="post">
+                                <button type="submit" asp-page-handler="Buy" asp-route-itemID="@item.ID">Add to Basket</button>
+                            </form>
                         </div>
                     </div>
                 }
@@ -130,8 +143,13 @@
                             <div>
                                 @Html.DisplayFor(modelItem => item.Allergens)
                             </div>
+                            <div>
+                                <form method="post">
+                                    <button type="submit" asp-page-handler="Buy" asp-route-itemID="@item.ID">Add to Basket</button>
+                                </form>
+                            </div>
                         </div>
                     }
-                }
+                }    
             </div>
         </div>

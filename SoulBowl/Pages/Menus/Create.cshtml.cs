@@ -42,7 +42,7 @@ namespace SoulBowl.Pages.Menus
                 ms.Dispose();
             }
 
-            _context.MenuItem.Add(MenuItem);
+            _context.MenuItems.Add(MenuItem);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

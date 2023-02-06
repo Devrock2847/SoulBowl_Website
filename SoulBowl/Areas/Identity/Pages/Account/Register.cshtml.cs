@@ -17,7 +17,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using SoulBowl.Data;
 
 namespace SoulBowl.Areas.Identity.Pages.Account
 {
@@ -30,12 +32,16 @@ namespace SoulBowl.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
+        private MenuContext _db;
+        public CheckoutCustomer Customer = new CheckoutCustomer();
+        public Basket Basket = new Basket();
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            MenuContext db )
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -43,6 +49,7 @@ namespace SoulBowl.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _db = db;
         }
 
         /// <summary>
@@ -141,6 +148,8 @@ namespace SoulBowl.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
+                        NewBasket();
+                        NewCustomer(Input.Email);
                         return LocalRedirect(returnUrl);
                     }
                 }
@@ -153,6 +162,34 @@ namespace SoulBowl.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
+        public void NewBasket()
+        {
+            var currentBasket = _db.Baskets.FromSqlRaw("SELECT * From Baskets")
+                .OrderByDescending(b => b.BasketID)
+                .FirstOrDefault();
+            if (currentBasket == null)
+            {
+                Basket.BasketID = 1;
+
+            }
+            else
+            {
+                Basket.BasketID = currentBasket.BasketID + 1;
+            }
+
+            _db.Baskets.Add(Basket);
+            _db.SaveChanges();
+        }
+
+
+        public void NewCustomer(string Email)
+        {
+            Customer.Email = Input.Email;
+            Customer.BasketID = Basket.BasketID;
+            _db.CheckoutCustomers.Add(Customer);
+            _db.SaveChanges();
+        }
+
 
         private IdentityUser CreateUser()
         {

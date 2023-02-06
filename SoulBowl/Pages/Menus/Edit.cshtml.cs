@@ -22,11 +22,11 @@ namespace SoulBowl.Pages.Menus
         public MenuItem MenuItem { get; set; } = default!;
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.MenuItem == null)
+            if (id == null || _context.MenuItems == null)
             {
                 return NotFound();
             }
-            var menuitem =  await _context.MenuItem.FirstOrDefaultAsync(m => m.ID == id);
+            var menuitem =  await _context.MenuItems.FirstOrDefaultAsync(m => m.ID == id);
             if (menuitem == null)
             {
                 return NotFound();
@@ -76,7 +76,7 @@ namespace SoulBowl.Pages.Menus
         }
         private bool MenuItemExists(int id)
         {
-          return _context.MenuItem.Any(e => e.ID == id);
+          return _context.MenuItems.Any(e => e.ID == id);
         }
     }
 }

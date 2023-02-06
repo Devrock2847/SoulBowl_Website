@@ -14,11 +14,17 @@ namespace SoulBowl.Data
             : base(options)
         {
         }
-        public DbSet<MenuItem> MenuItem { get; set; }
+        public DbSet<MenuItem> MenuItems { get; set; }
+
+        public DbSet<CheckoutCustomer> CheckoutCustomers { get; set; } = default!;
+        public DbSet<Basket> Baskets { get; set; } = default!;
+        public DbSet<BasketItem> BasketItems { get; set; } = default!;
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder); //new line of code
             modelBuilder.Entity<MenuItem>().ToTable("Menu");
+
+            modelBuilder.Entity<BasketItem>().HasKey(t => new { t.StockID, t.BasketID });
         }
     }
 }
