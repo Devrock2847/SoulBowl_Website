@@ -6,6 +6,8 @@
 @using SoulBowl.Data
 @using Microsoft.Extensions.Options
 @using Microsoft.AspNetCore.Identity
+@using Stripe
+@inject IOptions<StripeSettings> Stripe
 
 <h1>Checkout page</h1>
 
@@ -38,9 +40,19 @@ else
 				}
 			</tbody>
 		</table>
-		<h2>Order Total: @Model.Total.ToString("C")</h2>
 
-	<button type="submit" asp-page-handler="Buy">Buy</button>
+		<h2>Order Total: @Model.Total.ToString("C")</h2>
 	</form>
-	
+	@*       <button type="submit" asp-page-handler="Buy">Buy</button>*@
+	<form asp-page-handler="Charge" asp-route-amount="@Model.AmountPayable" method="post">
+		<script src="//checkout.stripe.com/checkout.js"
+			class="stripe-button"
+			data-key="pk_test_51MYr74LxPPR6wiw0l72zpehbc4wHDVTlcEhPrMTNrhnKkQG3XBXy5LFBzbxS3NALrVsFihtfhBRbAGzYWPYpCBy500quGGdUXA"
+			data-locale="auto"
+			data-name="Soul Bowl"
+			data-description="Soul Bowl Orders"
+			data-amount="@Model.AmountPayable"
+			data-currency="GBP">
+		</script>
+	</form>
 }
