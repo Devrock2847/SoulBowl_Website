@@ -5,6 +5,8 @@
     var inMemberRole = User.IsInRole("Member");
     var inAdminRole = User.IsInRole("Admin");
 }
+@using SoulBowl.Data
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,6 +68,9 @@
                                 <a class="nav-link" asp-area="" asp-page="/Admin/IndexAdmin">Admin area</a>
                             </li>
                             <li>
+                                <a class="nav-link" asp-area="" asp-page="/Contact">Contact us</a>
+                            </li>
+                            <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li class="nav-item dropdown">
@@ -94,9 +99,12 @@
                         </form>
                     </div>
                 </div>
+
                 <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbarTwo" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabelTwo">Basket</h5>
+
+
                         <li class="nav-item">
                             <a class="nav-link" id="checkoutButton" asp-area="" asp-page="/Checkout">Checkout</a>
                         </li>

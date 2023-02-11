@@ -3,4 +3,25 @@
 @{
 	ViewData["Title"] = "Contact page";
 }
-<p id="ContactP">Contact us page info</p>
+<div class="text-center">
+    <h1>Contact Us at Soul Bowl</h1>
+    <p>Please use our contact form below to get in touch with us</p>
+    <p>@Model.myStatus</p>
+</div>
+
+<form method="post">
+    <div class="form-group">
+        <label for="customername">Name</label>
+        <input asp-for="customername" type="text" class="form-control" id="customername" placeholder="Your name" />
+    </div>
+    <div class="form-group">
+        <label for="customeremail">Email</label>
+        <input asp-for="customeremail" type="text" class="form-control" id="customeremail" placeholder="Your Email" />
+    </div>
+    <div class="form-group">
+        <label for="customermessage">Message</label>
+        <textarea asp-for="customermessage" id="customermessage" class="form-control" placeholder="Enter your message here"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
