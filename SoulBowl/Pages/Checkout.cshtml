@@ -9,50 +9,74 @@
 @using Stripe
 @inject IOptions<StripeSettings> Stripe
 
-<h1>Checkout page</h1>
 
-@if (Model.Items.Count == 0) {
-	<p>Your basket is empty</p>
-}
-else 
-{
-	<form method="post">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Price</th>
-					<th>Quanity</th>
-					<th>Subtotal</th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach (var item in Model.Items)
-				{
-					var subtotal = item.Price * item.Quantity;
+<div id="checkoutCenter">
+	
+	<div id="checkoutBackground">
+		<h1 id="checkoutTitle">Checkout</h1>
+		@if (Model.Items.Count == 0) {
+			<p>Your basket is empty</p>
+		}
+		else 
+		{
+			<form method="post">
+				<table class="table" id="checkoutTable">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Name</th>
+							<th>Price</th>
+							<th>Quantity</th>
+							<th>Subtotal</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model.Items)
+						{
+							var subtotal = item.Price * item.Quantity;
 
-					<tr>
-						<td>@item.ItemName</td>
-						<td>@item.Price.ToString("C")</td>
-						<td>@item.Quantity</td>
-						<td>@subtotal.ToString("C")</td>
-					</tr>
-				}
-			</tbody>
-		</table>
+							<tr>
+								@{
+									try
+									{
+									<td id="checkoutImage">
+										<img id="checkoutImage" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" />
+									</td>
+									}
+									catch
+									{
+									<td>
+										<img class="img-thumb" src="/Images/no-image.png" alt="No Image provided" />
+									</td>
+									}
+								}
+								<td id="tableItem">@item.ItemName</td>
+								<td id="tableItem">@item.Price.ToString("C")</td>
+								<td id="tableItem">@item.Quantity</td>
+								<td id="tableItem">@subtotal.ToString("C")</td>
+							</tr>
+						}
+					</tbody>
+				</table>
 
-		<h2>Order Total: @Model.Total.ToString("C")</h2>
-	</form>
-	@*       <button type="submit" asp-page-handler="Buy">Buy</button>*@
-	<form asp-page-handler="Charge" asp-route-amount="@Model.AmountPayable" method="post">
-		<script src="//checkout.stripe.com/checkout.js"
-			class="stripe-button"
-			data-key="pk_test_51MYr74LxPPR6wiw0l72zpehbc4wHDVTlcEhPrMTNrhnKkQG3XBXy5LFBzbxS3NALrVsFihtfhBRbAGzYWPYpCBy500quGGdUXA"
-			data-locale="auto"
-			data-name="Soul Bowl"
-			data-description="Soul Bowl Orders"
-			data-amount="@Model.AmountPayable"
-			data-currency="GBP">
-		</script>
-	</form>
-}
+				<h2 id="orderTotal">Order Total: @Model.Total.ToString("C")</h2>
+			</form>
+			@*       <button type="submit" asp-page-handler="Buy">Buy</button>*@
+			<form asp-page-handler="Charge" asp-route-amount="@Model.AmountPayable" method="post" id="amountPayable">
+				<script src="//checkout.stripe.com/checkout.js"
+					class="stripe-button"
+					data-key="pk_test_51MYr74LxPPR6wiw0l72zpehbc4wHDVTlcEhPrMTNrhnKkQG3XBXy5LFBzbxS3NALrVsFihtfhBRbAGzYWPYpCBy500quGGdUXA"
+					data-locale="auto"
+					data-name="Soul Bowl"
+					data-description="Soul Bowl Orders"
+					data-amount="@Model.AmountPayable"
+					data-currency="GBP">
+				</script>
+			</form>
+		}
+
+	</div>
+</div>
+<div id="checkoutSpacer">
+</div>

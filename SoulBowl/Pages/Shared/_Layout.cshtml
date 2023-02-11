@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-@Model IndexModel
+
 @{
     var inMemberRole = User.IsInRole("Member");
     var inAdminRole = User.IsInRole("Admin");
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SoulBowl.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Menu.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Identity.css" asp-append-version="true" />
 
 </head>
 
@@ -37,7 +38,14 @@
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
+                        <form class="d-flex mt-3" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Looking for something?" aria-label="Search">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </form>
                         <partial name="_LoginPartial" id="loginPartial" />
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Index">Home</a>
@@ -51,12 +59,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Menus/Index">Menu2</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-page="/Login">Login/Register</a>
 
@@ -67,36 +70,16 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-page="/Admin/IndexAdmin">Admin area</a>
                             </li>
-                            <li>
-                                <a class="nav-link" asp-area="" asp-page="/Contact">Contact us</a>
-                            </li>
+
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" asp-area="" asp-page="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Legal stuff
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" asp-area="" asp-page="#">Privacy nl</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" asp-area="" asp-page="#">Terms and conditions nl</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" asp-area="" asp-page="#">Something else here</a></li>
-                                </ul>
-                            </li>
+
                          
                             <p id="adminStatement">Admin: @inAdminRole</p>
                             <p id="memberStatement">Member: @inMemberRole</p>
                         </ul>
-                        <form class="d-flex mt-3" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-success" type="submit">Search</button>
-                        </form>
+
                     </div>
                 </div>
 
@@ -126,9 +109,56 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
-<footer>
-    <a href="http://validator.w3.org/check?uri=referer">Validate HTML</a>
-    <a href="http://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a>
-    <a asp-page="/Admin">Admin</a>
+
+<footer class="text-center text-lg-start text-white" id="footerClass">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-8 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text">About us</h5>
+
+                    <p>
+                        The first SoulBowl restaurant was founded in Bristol in 1998 by proprietor Richard Smithson, 
+                        and remains an independent family business to this day.
+                        We have a talented team of chefs, managers and charismatic staff across our locations, 
+                        and while each restaurant has its own charm, they all remain true to our central ethos which
+                        is to provide contemporary food made with the finest ingredients, served to the highest standards.
+                    </p>
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text">Important Links</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="/Contact" class="text-white">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-white">Terms and Conditions</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+    <!-- Copyright -->
+    <div class="text-center p-3"
+            style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2023 Copyright:
+        <a class="text-white" href="#">SoulBowl.com</a>
+    </div>
+    <!-- Copyright -->
 </footer>
 </html>

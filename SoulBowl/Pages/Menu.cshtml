@@ -4,7 +4,7 @@
     ViewData["Title"] = "Menu";
 }
 
-<h1 id="MenuTitle">new Menu</h1>
+<h1 id="MenuTitle">Menu</h1>
 
 <h2 id="menusTitle">Starters</h2>
 
@@ -49,7 +49,7 @@
                     </div>
                     <div>
                         <form method="post">
-                            <button type="submit" asp-page-handler="Buy" asp-route-itemID="@item.ID">Add to Basket</button>
+                            <button type="submit" id="addToBasket" asp-page-handler="Buy" asp-route-itemID="@item.ID">Add to Basket</button>
                         </form>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                         </div>
                         <div>
                             <form method="post">
-                                <button type="submit" asp-page-handler="Buy" asp-route-itemID="@item.ID">Add to Basket</button>
+                                <button type="submit" id="addToBasket"  asp-page-handler="Buy" asp-route-itemID="@item.ID">Add to Basket</button>
                             </form>
                         </div>
                     </div>
@@ -145,11 +145,14 @@
                             </div>
                             <div>
                                 <form method="post">
-                                    <button type="submit" asp-page-handler="Buy" asp-route-itemID="@item.ID">Add to Basket</button>
+                                    <button type="submit" id="addToBasket" asp-page-handler="Buy" asp-route-itemID="@item.ID">Add to Basket</button>
                                 </form>
                             </div>
                         </div>
                     }
                 }    
+            </div>
+            <div id="menuSpacer">
+
             </div>
         </div>

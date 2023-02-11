@@ -11,8 +11,8 @@
     font-size: x-large;
 }
 #MenuTitle {
-    font-size: xx-large;
-    font-family:Impact;
+    font-size: 100px;
+    font-family:papyrus;
     color:white;
     text-align:center;
 }
@@ -37,4 +37,19 @@
 #login {
 }
 #register {
+}
+#addToBasket {
+    background-color:darkslategrey;
+    color:white;
+}
+#addToBasket:hover {
+    background-color: white;
+    color: #212529;
+}
+#menuSpacer {
+    height:50px;
+    width: 100%;
+}
+#footerClass {
+    width: 100%;
 }

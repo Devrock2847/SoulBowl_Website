@@ -33,9 +33,9 @@ namespace SoulBowl.Pages
             CheckoutCustomer customer = await _db.CheckoutCustomers.FindAsync(user.Email);
 
             Items = _db.CheckoutItems.FromSqlRaw(
-                "SELECT Menu.ID, " +
-				"CONVERT(Decimal(20, 2), Price, 2) AS Price, " +
-				"Menu.ItemName, " +
+                "SELECT Menu.ID, Menu.ImageData, " +
+                "CONVERT(Decimal(20, 2), Price, 2) AS Price, " +
+                "Menu.ItemName, " +
                 "BasketItems.BasketID, BasketItems.Quantity " +
                 "FROM Menu INNER JOIN BasketItems " +
                 "ON Menu.ID = BasketItems.StockID " +
@@ -46,9 +46,10 @@ namespace SoulBowl.Pages
 
             foreach (var item in Items)
             {
-				Total += (item.Quantity * item.Price);
+                Total += (item.Quantity * item.Price);
             }
             AmountPayable = (long)(Total * 100);
+
         }
         public async Task Process()
         {

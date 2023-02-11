@@ -12,5 +12,7 @@ namespace SoulBowl.Data
 		public string ItemName { get; set; }
 		[Required]
 		public int Quantity { get; set; }
+		[Required]
+		public byte[] ImageData { get; set; }
 	}
 }

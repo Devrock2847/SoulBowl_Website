@@ -1,0 +1,90 @@
+﻿body {
+}
+#loginMainDiv {
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+#loginBackgroundDiv {
+    background-color: #212529;
+}
+#loginTitle {
+    color:white;
+    font-size: 40px;
+    font-family: Papyrus;
+}
+#login-submit {
+    color: white;
+    font-family: Papyrus;
+    background-color:darkslategrey;
+}
+#forgot-password, #registerButton, #resend-confirmation, #rememberMeButton {
+    color: white;
+}
+#spacerLogin, #spacerRegister {
+    height: 50px;
+    width: 100%;
+}
+
+#registerMainDiv {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+#registerBackgroundDiv {
+    background-color: #212529;
+}
+#registerSubmit {
+    background-color: darkslategrey;
+    color:white;
+    font-family:Papyrus;
+}
+#registerTitle {
+    color: white;
+    font-size: 40px;
+    font-family: Papyrus;
+}
+#registerSubmit:hover {
+    color: #212529;
+    background-color:white;
+}
+#checkoutCenter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+#checkoutBackground {
+    width: 80%;
+    background-color: #212529;
+}
+#checkoutSpacer {
+    height:100px;
+}
+#amountPayable {
+    color:white;
+}
+#orderTotal {
+    color:white;
+    margin-left:10px;
+}
+#checkoutTable {
+    color:white;
+}
+#checkoutTitle {
+    color:white;
+    font-size: 100px;
+    font-family: Papyrus;
+}
+#checkoutImage {
+    height: 75px;
+    margin-left: 20px;
+}
+#tableItem {
+    font-size:30px;
+}
+#manager {
+    color:white;
+}
