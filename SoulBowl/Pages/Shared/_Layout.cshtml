@@ -38,65 +38,72 @@
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
+                        <partial name="_LoginPartial" id="loginPartial" />
+                        @if (inMemberRole == true || inAdminRole == true)
+                        {
+                            @if (inAdminRole == true)
+                            {
+                                <p id="adminStatement">You're logged in as an Admin</p>
+                            }
+                            else
+                            {
+                               <p id="memberStatement">You're logged in as a Member</p>
+                            }
+                        }
                         <form class="d-flex mt-3" role="search">
                             <input class="form-control me-2" type="search" placeholder="Looking for something?" aria-label="Search">
                             <button class="btn btn-success" type="submit">Search</button>
                         </form>
-                        <partial name="_LoginPartial" id="loginPartial" />
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Index">Home</a>
+                                <a class="nav-link active text-light" id="homeButton" aria-current="page" asp-area="" asp-page="/Index"> Home</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Menu">Menu</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
+                                <a class="nav-link text-light" id="menuButtonHome" asp-area="" asp-page="/Menu"> Menu</a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Login">Login/Register</a>
-
-                            </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Admin/IndexAdmin">Admin area</a>
+                                <a class="nav-link text-light" id="contactButton" asp-area="" asp-page="/Contact"> Contact us</a>
                             </li>
-
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
+                            @if (inAdminRole == true)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" id="adminAreaButton" asp-page="/Admin/IndexAdmin"> Admin area</a>
+                                </li>
 
-                         
-                            <p id="adminStatement">Admin: @inAdminRole</p>
-                            <p id="memberStatement">Member: @inMemberRole</p>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                            }
+
                         </ul>
 
                     </div>
                 </div>
-
+                
                 <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbarTwo" aria-labelledby="offcanvasDarkNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabelTwo">Basket</h5>
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabelTwo">Your Basket</h5>
 
-
-                        <li class="nav-item">
-                            <a class="nav-link" id="checkoutButton" asp-area="" asp-page="/Checkout">Checkout</a>
-                        </li>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div id="basketSpacer">
                     </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        </ul>
-                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" id="checkoutButton" asp-area="" asp-page="/Checkout">Checkout</a>
+                    </li>
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    </ul>
                 </div>
             </div>
         </nav>

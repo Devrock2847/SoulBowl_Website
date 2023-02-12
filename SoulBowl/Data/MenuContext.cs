@@ -27,6 +27,8 @@ namespace SoulBowl.Data
             modelBuilder.Entity<MenuItem>().ToTable("Menu");
 
             modelBuilder.Entity<BasketItem>().HasKey(t => new { t.StockID, t.BasketID });
+
+
         }
     }
 }
