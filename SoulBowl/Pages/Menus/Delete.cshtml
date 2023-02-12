@@ -4,49 +4,55 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<div id="deleteCenter">
+    <div id="deleteBackground">
 
-<h1>Delete</h1>
+    <h1 id="deleteTitle">Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>MenuItem</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MenuItem.MenuType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MenuItem.MenuType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MenuItem.ItemName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MenuItem.ItemName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MenuItem.ItemDescription)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MenuItem.ItemDescription)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MenuItem.Allergens)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MenuItem.Allergens)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MenuItem.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MenuItem.Price)
-        </dd>
-    </dl>
+    <h3 id="deleteConfirm">Are you sure you want to delete this item?</h3>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2" id="delete2">
+                @Html.DisplayNameFor(model => model.MenuItem.MenuType)
+            </dt>
+            <dd class="col-sm-10" id="delete3">
+                @Html.DisplayFor(model => model.MenuItem.MenuType)
+            </dd>
+            <dt class="col-sm-2" id="delete4">
+                @Html.DisplayNameFor(model => model.MenuItem.ItemName)
+            </dt>
+            <dd class="col-sm-10" id="delete5">
+                @Html.DisplayFor(model => model.MenuItem.ItemName)
+            </dd>
+            <dt class="col-sm-2" id="delete6">
+                @Html.DisplayNameFor(model => model.MenuItem.ItemDescription)
+            </dt>
+            <dd class="col-sm-10" id="delete7">
+                @Html.DisplayFor(model => model.MenuItem.ItemDescription)
+            </dd>
+            <dt class="col-sm-2" id="delete8">
+                @Html.DisplayNameFor(model => model.MenuItem.Allergens)
+            </dt>
+            <dd class="col-sm-10" id="delete9">
+                @Html.DisplayFor(model => model.MenuItem.Allergens)
+            </dd>
+            <dt class="col-sm-2" id="delete10">
+                @Html.DisplayNameFor(model => model.MenuItem.Price)
+            </dt>
+            <dd class="col-sm-10" id="delete11">
+                @Html.DisplayFor(model => model.MenuItem.Price)
+            </dd>
+        </dl>
     
-    <form method="post">
-        <input type="hidden" asp-for="MenuItem.ID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
+        <form method="post">
+            <input type="hidden" asp-for="MenuItem.ID" />
+            <input type="submit" id="deleteButton" value="Delete" class="btn btn-danger" /> |
+            <a asp-page="/AdminIndex">Return</a>
+        </form>
+    </div>
+    </div>
+</div>
+<div id="deleteSpacer">
+
 </div>

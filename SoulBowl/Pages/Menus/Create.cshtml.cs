@@ -45,7 +45,7 @@ namespace SoulBowl.Pages.Menus
             _context.MenuItems.Add(MenuItem);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Admin/IndexAdmin");
         }
     }
 }

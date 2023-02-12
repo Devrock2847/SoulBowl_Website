@@ -94,20 +94,33 @@ body {
 #createButton {
     font-size: 30px;
 }
-#loginPartial {
+#loginPartial, #login, #register {
     color: white;
+    font-size:20px;
+    font-family:Papyrus;
 }
 #adminStatement {
     color: white;
+    font-size: 20px;
+    font-family: Papyrus;
 }
 #memberStatement {
     color: white;
+    font-size: 20px;
+    font-family: Papyrus;
 }
 #footerClass {
     background-color: #212529;
 }
+#manage {
+    color: white;
+    font-size: 20px;
+    font-family: Papyrus;
+}
 #logoutForm {
-    color:white;
+    color: white;
+    font-size: 20px;
+    font-family: Papyrus;
 }
 #basketSpacer {
     height: 50px;
@@ -131,10 +144,10 @@ body {
     color: #212529;
 }
 #adminStatement, #memberStatement {
-    margin-top:10px;
+    margin-top: 10px;
 }
 #homeButton {
-    margin-top:10px;
+    margin-top: 10px;
     font-size: 30px;
     font-family: Papyrus;
 }
@@ -162,4 +175,47 @@ body {
 #adminAreaButton:hover {
     background-color: darkslategrey;
 }
+#contactCenter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#contactBackground {
+    background-color: #212529;
+    width: 60%;
+}
+
+#loginTitle {
+    color: white;
+    font-size: 40px;
+    font-family: Papyrus;
+}
+#custNameInput, #custMessageinput, #custEmailInput {
+    width: 90%;
+    justify-content: center;
+    margin-left:20px;
+}
+#contactHeader, #contactMessage, #contactMessage {
+    color:white;
+}
+#contactSpacer {
+    height: 50px;
+}
+#custEmailInputLabel, #custNameInputLabel, #custMessageInputLabel {
+    color: white;
+}
+#contactSubmitButton {
+    background-color: #212529;
+    color: white;
+    margin: 20px;
+}
+#contactSubmitButton:hover {
+    color: #212529;
+    background-color: white;
+    
+}
+
+
 #212529

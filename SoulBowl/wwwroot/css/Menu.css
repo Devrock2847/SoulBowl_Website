@@ -53,3 +53,10 @@
 #footerClass {
     width: 100%;
 }
+#createTitle {
+    color:white;
+    font-size: 30px;
+}
+#creatMenuNote {
+    color:white;
+}

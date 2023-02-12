@@ -6,74 +6,79 @@
     ViewData["Title"] = "Admin";
 }
 
-<h1>Admin page</h1>
+<div id="adminAreaCenter">
+    <div id="adminAreaBackground">
+        <h1 id="adminAreaTitle">Admin Area</h1>
 
-<p>
-    <a id=createButton asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MenuItem[0].MenuType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MenuItem[0].ItemName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MenuItem[0].ItemDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MenuItem[0].Allergens)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MenuItem[0].Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MenuItem[0].ImageData)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.MenuItem)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MenuType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ItemName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ItemDescription)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Allergens)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                @{
-                    try
-                    {
-                        <td>
-                            <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription" />
+        <p>
+            <a id="createButton" asp-page="/Menus/Create">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th id="admin1">
+                        @Html.DisplayNameFor(model => model.MenuItem[0].MenuType)
+                    </th>
+                    <th id="admin2">
+                        @Html.DisplayNameFor(model => model.MenuItem[0].ItemName)
+                    </th>
+                    <th id="admin3">
+                        @Html.DisplayNameFor(model => model.MenuItem[0].ItemDescription)
+                    </th>
+                    <th id="admin4">
+                        @Html.DisplayNameFor(model => model.MenuItem[0].Allergens)
+                    </th>
+                    <th id="admin5">
+                        @Html.DisplayNameFor(model => model.MenuItem[0].Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MenuItem[0].ImageData)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.MenuItem)
+                {
+                    <tr>
+                        <td id="admin11">
+                            @Html.DisplayFor(modelItem => item.MenuType)
                         </td>
-                    }
-                    catch
-                    {
-                        <td>
-                            <img class="img-thumb" src="/Images/no-image.png" alt="No Image provided" />
+                        <td id="admin22">
+                            @Html.DisplayFor(modelItem => item.ItemName)
                         </td>
-                    }
+                        <td id="admin33">
+                            @Html.DisplayFor(modelItem => item.ItemDescription)
+                        </td>
+                        <td id="admin44">
+                            @Html.DisplayFor(modelItem => item.Allergens)
+                        </td>
+                        <td id="admin55">
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        @{
+                            try
+                            {
+                                <td>
+                                    <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImageData))" alt="@item.ImageDescription" />
+                                </td>
+                            }
+                            catch
+                            {
+                                <td>
+                                    <img class="img-thumb" src="/Images/no-image.png" alt="No Image provided" />
+                                </td>
+                            }
+                        }
+                        <td id="adminInfoBox">
+                            <a asp-page="/Menus/Edit" id="adminEditButton" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-page="/Menus/Details" id="adminDetailsButton" asp-route-id="@item.ID">Details</a> |
+                            <a asp-page="/Menus/Delete" id="adminDeleteButton" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
                 }
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="adminAreaSpacer"></div>

@@ -1,0 +1,211 @@
+﻿
+#adminAreaCenter {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    margin-left:10%;
+}
+#adminAreaBackground {
+    background-color: #212529;
+}
+#adminAreaTitle {
+    color:white;
+    font-size: 40px;
+    font-family: Papyrus;
+    margin: 20px;
+}
+#createButton {
+    color: white;
+    background-color: #212529;
+    
+    margin-left: 20px;
+}
+#createButton:hover {
+    color: #212529;
+    background-color: white;
+}
+#admin1, #admin2, #admin3, #admin4, #admin5 {
+    color:white;
+    font-size:20px;
+}
+#admin11, #admin22, #admin33, #admin44, #admin55 {
+    color:white;
+}
+#adminEditButton, #adminDetailsButton, #adminDeleteButton {
+    border:medium;
+    
+}
+#adminInfoBox {
+    justify-content: center;
+}
+#adminAreaSpacer {
+    height:50px;
+}
+#createCenter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+}
+
+#createBackground {
+    background-color:#212529;
+    margin: 10px;
+}
+#createTitle {
+    color:white;
+    font-size: 30px;
+    font-family: Papyrus;
+}
+#menuNote {
+    color:white;
+}
+#createMenuNameLabel, #createMenuTypeLabel, #createMenuDescriptionLabel, #createMenuAllergensLabel, #createMenuPriceLabel, #createMenuImageDescLabel, #createMenuImageDataLabel {
+    color:white;
+    margin:10px;
+}
+#returnButton {
+    color: white;
+    background-color: #212529;
+    font-size: 30px;
+    margin:20px;
+
+}
+#returnButton:hover {
+    color: #212529;
+    background-color:white;
+}
+#adminCreateSpacer {
+    height:50px;
+}
+#file1 {
+    color:white;
+}
+#createMainRows {
+    width:100%;
+}
+#createButtonOnPage {
+    font-size:30px;
+    background-color: #212529;
+    color:white;
+    margin: 10px;
+}
+#createButtonOnPage:hover {
+    color: #212529;
+    background-color: white;
+}
+#createMainRow {
+    width:100%;
+}
+#deleteCenter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+}
+#deleteBackground {
+    background-color: #212529;
+}
+#deleteTitle {
+    font-size:30px;
+    font-family: Papyrus;
+    color: white;
+    margin: 10px;
+}
+#deleteConfirm {
+    color: white;
+    margin:10px;
+}
+#delete1, #delete2, #delete3, #delete4, #delete5, #delete6, #delete7, #delete8, #delete9, #delete10, #delete11 {
+    color: white;
+    margin-left: 10px;
+}
+#deleteSpacer {
+    height: 50px;
+}
+#deleteButton {
+    margin: 10px;
+}
+
+#editCenter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+}
+#editBackground {
+    background-color: #212529;
+}
+#editTitle {
+    font-size: 30px;
+    font-family: Papyrus;
+    color: white;
+    margin: 10px;
+}
+#editMenuTypeLabel, #editMenuNameLabel, #editMenuDescLabel, #editMenuAllergensLabel, #editMenuPriceLabel, #editImageDescLabel {
+    color:white;
+}
+#editImageData {
+    color:white;
+}
+#editSpacer {
+    height: 50px;
+}
+#editSubmitButton {
+    background-color: #212529;
+    color:white;
+    margin: 10px;
+    font-size: 30px;
+}
+#editSubmitButton:hover {
+    background-color:white;
+    color: #212529;
+}
+#divRowID {
+    margin-left:10px;
+}
+#detailsCenter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+}
+#detailsBackground {
+    background-color: #212529;
+}
+#detailsHeader {
+    color: white;
+    font-size: 30px;
+    font-family: Papyrus;
+    margin: 10px;
+}
+#detailsTableItem {
+    color:white;
+}
+#menuDetailsEditButton {
+    color:white;
+    font-size:20px;
+    margin:10px;
+    background-color:#212529;
+}
+#menuDetailsEditButton:hover {
+    color:#212529;
+    background-color:white;
+}
+#detailsReturn {
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+}
+#detailsSpacer {
+    height:50px;
+}
+#detailsReturn:hover {
+    color: #212529;
+    background-color: white;
+}
