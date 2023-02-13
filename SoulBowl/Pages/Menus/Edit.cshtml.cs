@@ -72,7 +72,7 @@ namespace SoulBowl.Pages.Menus
                 }
             }
 
-            return RedirectToPage("/AdminIndex");
+            return RedirectToPage("/Admin/IndexAdmin");
         }
         private bool MenuItemExists(int id)
         {

@@ -36,10 +36,21 @@ namespace SoulBowl.Data
                     await userManager.AddPasswordAsync(user, password4all);
                     await userManager.AddToRoleAsync(user, adminRole);
                 }
-            } else
+            } 
+            if(await userManager.FindByNameAsync("member@ucm.ac.im") == null) 
             {
-                var user = new IdentityUser { };
-                await userManager.AddToRoleAsync(user, memberRole);
+                var user = new IdentityUser { 
+                    UserName = "members@ucm.ac.im",
+                    Email = "members@ucm.ac.im",
+                    PhoneNumber = "06124 234854"
+                };
+                var result = await userManager.CreateAsync(user);
+                if (result.Succeeded)
+                {
+                    await userManager.AddPasswordAsync(user, password4all);
+                    await userManager.AddToRoleAsync(user, memberRole);
+                }
+                
             }
 
         }
