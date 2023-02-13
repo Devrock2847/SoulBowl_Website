@@ -52,7 +52,7 @@ namespace SoulBowl.Pages.Menus
                 _context.MenuItems.Remove(MenuItem);
                 await _context.SaveChangesAsync();
             }
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Admin/IndexAdmin");
         }
     }
 }
