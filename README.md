@@ -11,3 +11,5 @@ This website is not yet finished future plans include:
 -Add location map to the contact page with address 
 -Admin promotion priviledges as currently only admin is hardcoded
 -Possibly change the homepage carosel to display random images from the database
+-Added to basket notification
+-Ability to change quantity in basket/checkout
