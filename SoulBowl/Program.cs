@@ -29,7 +29,6 @@ options =>
 .AddDefaultUI()
 .AddDefaultTokenProviders();
 
-
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddAuthorization(options =>
