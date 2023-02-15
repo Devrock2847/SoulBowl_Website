@@ -31,7 +31,6 @@ namespace SoulBowl.Pages.Menus
             {
                 return Page();
             }
-
           foreach (var file in Request.Form.Files)
             {
                 MemoryStream ms = new MemoryStream();
@@ -41,7 +40,6 @@ namespace SoulBowl.Pages.Menus
                 ms.Close();
                 ms.Dispose();
             }
-
             _context.MenuItems.Add(MenuItem);
             await _context.SaveChangesAsync();
 
