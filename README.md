@@ -1,5 +1,4 @@
 # SoulBowl
-
 This website is not yet finished future plans include:
 -A working search bar/page
 -Ability to edit images in the database
