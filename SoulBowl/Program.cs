@@ -15,9 +15,6 @@ StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 builder.Services.AddDbContext<MenuContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MenuContext")));
 
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true);
-    //.AddEntityFrameworkStores<MenuContext>();
-
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(
 
 options =>
